@@ -30,7 +30,7 @@ define(function (require, exports, module) {
             var cursorPos = mainWindow.getCursorPos(),
                 scrollPos = mainWindow.getScrollPos();
 
-				htmlContent = htmlContent.replace(/\u2013/g,"&ndash;");
+        htmlContent = htmlContent.replace(/\u2013/g,"&ndash;");
 				htmlContent = htmlContent.replace(/\u2014/g,"&mdash;");
 				htmlContent = htmlContent.replace(/\u0091/g,"'");
 				htmlContent = htmlContent.replace(/\u0092/g,"'");
@@ -46,6 +46,23 @@ define(function (require, exports, module) {
 				htmlContent = htmlContent.replace(/”/g,"\"");
 				htmlContent = htmlContent.replace(/\s&\s/g,"&amp;");
 				htmlContent = htmlContent.replace(/\u2026/g,"...;");
+        
+				//Replace accented letters with equivalent escape codes
+        //lowercase
+        htmlContent = htmlContent.replace(/\u00E0/g,"&agrave;");
+        htmlContent = htmlContent.replace(/\u00E8/g,"&egrave;");
+        htmlContent = htmlContent.replace(/\u00E9/g,"&eacute;");
+        htmlContent = htmlContent.replace(/\u00EC/g,"&igrave;");
+        htmlContent = htmlContent.replace(/\u00F2/g,"&ograve;");
+        htmlContent = htmlContent.replace(/\u00F9/g,"&ugrave;");
+        //uppercase
+        htmlContent = htmlContent.replace(/\u00C0/g,"&Agrave;");
+        htmlContent = htmlContent.replace(/\u00C8/g,"&Egrave;");
+        htmlContent = htmlContent.replace(/\u00C9/g,"&Eacute;");
+        htmlContent = htmlContent.replace(/\u00CC/g,"&Igrave;");
+        htmlContent = htmlContent.replace(/\u00D2/g,"&Ograve;");
+        htmlContent = htmlContent.replace(/\u00D9/g,"&ugrave;");
+        
 			
 				activeText.setText(htmlContent);
 
